@@ -1,13 +1,15 @@
-﻿import { NextResponse } from "next/server"
+﻿import { NextResponse } from 'next/server'
 
 export async function GET() {
   return NextResponse.json({
-    status: "ok",
-    message: "Backend A is running!",
-    timestamp: new Date().toISOString()
+    status: 'ok',
+    server: 'Backend A - Equity & Workflow Engine',
+    port: 3001,
+    services: {
+      equity_transactions: true,
+      workflow_engine: true,
+      compliance_rules: true,
+      approvals: true
+    }
   })
-}
-
-export async function OPTIONS() {
-  return new NextResponse(null, { status: 204 })
 }
